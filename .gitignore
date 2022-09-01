@@ -1,0 +1,8 @@
+target/classes/beans/Reserva.class
+target/classes/beans/SalonSocial.class
+target/classes/beans/Usuario.class
+target/classes/connection/DBConnection.class
+target/classes/servelts/PruebaServelt.class
+target/ReservaTuEspacioApp-1.0/WEB-INF/classes/beans/Reserva.class
+target/ReservaTuEspacioApp-1.0/WEB-INF/classes/beans/SalonSocial.class
+target/ReservaTuEspacioApp-1.0/WEB-INF/classes/beans/Usuario.class
