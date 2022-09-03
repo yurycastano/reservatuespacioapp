@@ -6,3 +6,7 @@ target/classes/servelts/PruebaServelt.class
 target/ReservaTuEspacioApp-1.0/WEB-INF/classes/beans/Reserva.class
 target/ReservaTuEspacioApp-1.0/WEB-INF/classes/beans/SalonSocial.class
 target/ReservaTuEspacioApp-1.0/WEB-INF/classes/beans/Usuario.class
+target/ReservaTuEspacioApp-1.0/WEB-INF/classes/
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/maven-archiver/pom.properties
+target/ReservaTuEspacioApp-1.0.war
