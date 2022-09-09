@@ -10,3 +10,4 @@ target/ReservaTuEspacioApp-1.0/WEB-INF/classes/
 target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 target/maven-archiver/pom.properties
 target/ReservaTuEspacioApp-1.0.war
+target/

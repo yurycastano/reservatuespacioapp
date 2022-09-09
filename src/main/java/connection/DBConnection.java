@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class DBConnection {
     Connection connection;
-   static String bd = "reseva_tu_espacio_app";
+   static String bd = "reserva_tu_espacio_app";
    static String port = "3306";
    static String login = "root";
    static String password = "admin";

@@ -1,0 +1,20 @@
+.container-login{
+    background-color: skyblue;
+    border-radius: 30px;
+    padding: 25px;
+    margin-top: 50px;   
+}
+
+.reserva-tu-app-banner {
+    background-color: yellow;
+    
+}
+
+.logo-navbar{
+    width: 24px;
+    
+}
+
+.card-eliminar-reserva img {
+    height: 186px;
+}
