@@ -20,43 +20,95 @@
               integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
               crossorigin="anonymous" />
 
-        <script src="js/main.js"></script>
-        <link rel="stylesheet" href="css/main.css" />
-        <title>Historial de reserva </title>
-    </head>
-    <body>
+        
+        <script src="js/historialdereserva.js"></script>
+        <link rel="icon" href= "img/apartamento.png"/>
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+    <title>Historial de reserva </title>
+</head>
+<body>
 
-        <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Reserva tu espacio App</a>
-            <div id="user-data-profile">
-                <span class="badge badge-light mr-3" id="user-saldo"></span>
-               
+     <!--   Inicio de Header     -->
+        <header>
+            <div class="container-fluid p-5 container-fluid p-5 bg-info text-white text-center">
+                <h1> Reserva tu espacio App</h1>  
+            </div>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">      
+                <a class="icon" href="#"></a>
+
+
+
+
+                <img class="logo-navbar" src="img/apartamento.png" alt=""/>
+
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Reserva</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Modifica</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Elimina</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Historial</a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Cerrar Sesión</a>
+                        </li>
+
+
+
+                    </ul>
+
+                </div>
             </div>
         </nav>
-        <p></p>
-        <main class="p-4 d-flex justify-content-center">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                       
-                        <th scope="col">Id Reserva</th>
-                       
-                        
-                        <th scope="col">Username</th>
-                        <th scope="col">Fecha</th>
-                         <th scope="col" id="ordenar-fecha" data-toogle="tooltip" 
-                            data-placement="top" title="Ordenar por fecha">
+        <!--   Fin de Header     -->
+    
+    <main class="p-4 d-flex justify-content-center">
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th scope="col">Id Reserva</th>
+
+
+                    <th scope="col">Username</th>
+                    <th scope="col" id="ordenar-fecha" data-toogle="tooltip" 
+                            data-placement="top" title="Ordenar por género">Fecha
                             <span class="fas fa-sort" id="icono-ordenar"></span></th>
-                        <th scope="col">Horario</th>
-                        <th scope="col">Salon Social</th>
-                        
-                    </tr>
-                </thead>
-                <tbody id="reserva-tbody">
+                    <th scope="col">Horario</th>
+                    <th scope="col">Salon Social</th>
 
-                </tbody>
-            </table>
-        </main>
+                </tr>
+            </thead>
+            <tbody id="reserva-tbody">
 
-    </body>
+            </tbody>
+        </table>
+    </main>
+
+</body>
 </html>  

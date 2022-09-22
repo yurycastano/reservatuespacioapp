@@ -18,3 +18,19 @@
 .card-eliminar-reserva img {
     height: 186px;
 }
+
+/* Estilos Globales */
+thead {
+    background-color: #17a2b8;
+}
+
+thead th {
+    border-color: #17a2b8;
+    color: #ffffff;
+}
+
+/* Estilos Pagina Historial */
+#ordenar-fecha{
+    cursor:pointer;
+}
+
