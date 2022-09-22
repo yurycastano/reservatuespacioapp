@@ -1,19 +1,19 @@
 package beans;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Reserva {
     private int idreserva;
     private String username;
     private Date fecha;
-    private boolean hoarario;
+    private int horario;
     private int salonsocial;
 
-    public Reserva(int idreserva, String username, Date fecha, boolean hoarario, int salonsocial) {
+    public Reserva(int idreserva, String username, Date fecha, int horario, int salonsocial) {
         this.idreserva = idreserva;
         this.username = username;
         this.fecha = fecha;
-        this.hoarario = hoarario;
+        this.horario = horario;
         this.salonsocial = salonsocial;
     }
 
@@ -41,12 +41,12 @@ public class Reserva {
         this.fecha = fecha;
     }
 
-    public boolean isHoarario() {
-        return hoarario;
+    public int getHorario() {
+        return horario;
     }
 
-    public void setHoarario(boolean hoarario) {
-        this.hoarario = hoarario;
+    public void setHorario(int horario) {
+        this.horario = horario;
     }
 
     public int getSalonsocial() {
@@ -59,7 +59,7 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return "Reserva{" + "idreserva=" + idreserva + ", username=" + username + ", fecha=" + fecha + ", hoarario=" + hoarario + ", salonsocial=" + salonsocial + '}';
+        return "Reserva{" + "idreserva=" + idreserva + ", username=" + username + ", fecha=" + fecha + ", horario=" + horario + ", salonsocial=" + salonsocial + '}';
     }
-    
+
 }

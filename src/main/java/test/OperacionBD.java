@@ -36,7 +36,7 @@ public class OperacionBD {
                int idreserva = rs.getInt("idreserva");
                String username = rs.getString("username");
                Date fecha = rs.getDate("fecha");
-               boolean horario = rs.getBoolean("horario");
+               int horario = rs.getInt("horario");
                int salonsocial = rs.getInt("salonsocial");
                
                Reserva reserva = new Reserva(idreserva,username,fecha,horario,salonsocial);
