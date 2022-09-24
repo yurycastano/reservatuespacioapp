@@ -111,6 +111,37 @@ public class UsuarioController implements IUsuarioController {
 
         return "false";
     }
+
+    @Override
+    public String modificar(String idusuario, String nuevaContrasena, 
+            String nuevoNombre, String nuevosApellidos, int nuevaCedula, String numerodetelefono, String nuevoEmail, 
+            String nuevaTorre, String nuevoApartamento) {   
+
+        DBConnection con = new DBConnection();
+
+        String sql = "Update usuario set contrasena = '" + nuevaContrasena + "', "
+                + "nombre = '" + nuevoNombre + "', "
+                + "cedula = '" + nuevaCedula + "', "
+                + "telefono = '" + numerodetelefono + "', "
+                + "apellidos=  '" + nuevosApellidos + "', email = '" 
+                + nuevoEmail + "', torre = '" + nuevaTorre + "', apartamento = '" + nuevoApartamento + "'";
+
+        sql += " where idusuario = '" + idusuario + "'";
+
+        try {
+
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+    }
   }
 
 

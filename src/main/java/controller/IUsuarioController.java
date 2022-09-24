@@ -11,4 +11,8 @@ public  interface IUsuarioController {
     
     public String pedir(String idusuario);
     
+    public String modificar(String idusuario, String nuevaContrasena, 
+            String nuevoNombre, String nuevosApellidos, int nuevaCedula, String numerodetelefono, String nuevoEmail, 
+            String torre, String apartamento);
+    
 } 
