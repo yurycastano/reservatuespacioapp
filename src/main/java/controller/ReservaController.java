@@ -2,13 +2,13 @@ package controller;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import com.google.gson.Gson;
 import beans.Reserva;
+import beans.ResultadoPeticion;
 import connection.DBConnection;
 
 public class ReservaController implements IReservaController {
@@ -55,4 +55,64 @@ public class ReservaController implements IReservaController {
 
     }
 
+    @Override
+    public String crear(String idusuario, String fecha, int horario, int salonsocial) {
+        
+        
+         Gson gson = new Gson();
+         ResultadoPeticion resultadoPeticion = new ResultadoPeticion();
+         
+         DBConnection conexion = new DBConnection();
+         
+        String sqlSelect = "SELECT * FROM reserva where fecha='" + fecha + "' and salonsocial =" + salonsocial;
+        
+        try {
+            Statement st = conexion.getConnection().createStatement();
+            ResultSet rs = st.executeQuery(sqlSelect);
+            
+            while (rs.next()) {
+
+                int horarioReserva = rs.getInt("horario");
+                if(horarioReserva == horario) {
+                    resultadoPeticion.setResultado(false);
+                    resultadoPeticion.setMensaje("El horario no está disponbile");
+                    return gson.toJson(resultadoPeticion);
+                }
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            resultadoPeticion.setResultado(false);
+            resultadoPeticion.setMensaje("Error en la conexión a la BD");
+            return gson.toJson(resultadoPeticion);
+        } finally {
+            conexion.desconectar();
+        }
+         
+
+        DBConnection con = new DBConnection();
+        String sql = "Insert into reserva (username,fecha,horario,salonsocial) values('" + idusuario + "', '" + fecha + "', '" + horario
+                + "', '" + salonsocial + "')";
+        
+        try {
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+            st.close();
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            resultadoPeticion.setResultado(false);
+            resultadoPeticion.setMensaje("Error ingresando la reserva a la BD");
+            return gson.toJson(resultadoPeticion);
+        } finally {
+            con.desconectar();
+        }
+        
+        resultadoPeticion.setResultado(true);
+        resultadoPeticion.setMensaje("Reserva creada satisfactoriamente!");
+        return gson.toJson(resultadoPeticion);
+    }
+
+    
+    
 }
