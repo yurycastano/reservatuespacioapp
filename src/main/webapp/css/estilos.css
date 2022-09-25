@@ -20,6 +20,14 @@
 }
 
 /* Estilos Globales */
+table td {
+    text-align: center;
+}
+
+table th {
+    text-align: center;
+}
+
 thead {
     background-color: #17a2b8;
 }
@@ -33,4 +41,6 @@ thead th {
 #ordenar-fecha{
     cursor:pointer;
 }
+
+
 

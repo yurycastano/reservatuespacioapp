@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.UsuarioController;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ServletUsuarioLogin
@@ -38,7 +39,12 @@ public class ServletUsuarioLogin extends HttpServlet {
 		String contrasena = request.getParameter("contrasena");
 		String result = usuario.login(
                         idusuario, contrasena);
-		
+                
+                if(!"false".equals(idusuario)) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("user", idusuario);
+                }
+                
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println(result);

@@ -4,14 +4,12 @@
  */
 package controller;
 
-import beans.Reserva;
 import beans.SalonSocial;
 import com.google.gson.Gson;
 import connection.DBConnection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -41,9 +39,11 @@ public class SalonSocialController implements ISalonSocialController {
 
                 int idsalonsocial = rs.getInt("idsalonsocial");
                 String nombre = rs.getString("nombre");
+                int aforo = rs.getInt("aforo");
+                double precio = rs.getDouble("precio");
 
 
-                SalonSocial salonSocial = new SalonSocial(idsalonsocial,nombre);
+                SalonSocial salonSocial = new SalonSocial(idsalonsocial,nombre,aforo,precio);
 
                 salonSocialList.add(gson.toJson(salonSocial));
 

@@ -45,8 +45,8 @@
 
 
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent"
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false"
                         aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -77,8 +77,23 @@
         </nav>
         <!--   Fin de Header     -->
     
-    <main class="p-4 d-flex justify-content-center">
-        <table class="table">
+    <main class="p-4 justify-content-center">
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-danger d-none" id="accion-error" role="alert">  
+                                Error al realizar la acción.
+                            </div>
+            </div>
+            <div class="col-12">
+                <div id="accion-exito" class="alert alert-success d-none" role="alert">
+                                Acción realizada exitosamente!
+                            </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <table class="table">
             <thead>
                 <tr>
 
@@ -86,11 +101,10 @@
 
 
                     <th scope="col">Username</th>
-                    <th scope="col" id="ordenar-fecha" data-toogle="tooltip" 
-                            data-placement="top" title="Ordenar por género">Fecha
-                            <span class="fas fa-sort" id="icono-ordenar"></span></th>
+                    <th scope="col">Fecha</th>
                     <th scope="col">Horario</th>
                     <th scope="col">Salon Social</th>
+                    <th scope="col">Acciones</th>
 
                 </tr>
             </thead>
@@ -98,7 +112,31 @@
 
             </tbody>
         </table>
+        </div>
     </main>
+        
+        <div class="modal fade" id="eliminar-reserva-modal" tabindex="-1" role="dialog" 
+                 aria-labelledby="eliminar-reserva-modal-label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-tittle" id="eliminar-reserva-modal-header">¿Eliminar Reserva?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Eliminar una reserva es una acción que no se puede restaurar. ¿Está seguro?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" 
+                                    data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-danger" 
+                                    id="aceptar-eliminar-reserva-btn">Eliminar reserva</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 </body>
 </html>  

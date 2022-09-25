@@ -9,6 +9,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import beans.Reserva;
 import beans.ResultadoPeticion;
+import beans.Usuario;
 import connection.DBConnection;
 
 public class ReservaController implements IReservaController {
@@ -113,6 +114,83 @@ public class ReservaController implements IReservaController {
         return gson.toJson(resultadoPeticion);
     }
 
-    
+    @Override
+    public String pedir(String idreserva) {
+        Gson gson = new Gson();
+
+        DBConnection con = new DBConnection();
+        String sql = "Select * from reserva where idreserva = '" + idreserva + "'";
+
+        try {
+
+            Statement st = con.getConnection().createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+                int idreservabd = rs.getInt("idreserva");
+                String usernameBd = rs.getString("username");
+                Date fecha = rs.getDate("fecha");
+                int horario = rs.getInt("horario");
+                int salonsocial= rs.getInt("salonsocial");
+
+                Reserva reserva = new Reserva(idreservabd, usernameBd, fecha, horario, salonsocial);
+
+                return gson.toJson(reserva);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+    }
+
+    @Override
+    public String modificar(String idreserva, String idusuario, String fecha,int horario,int salonsocial) {
+       
+        DBConnection con = new DBConnection();
+
+        String sql = "Update reserva set fecha = '" + fecha + "', "
+                + "horario = '" + horario + "', "
+                + "salonsocial = '" + salonsocial + "' ";
+
+        sql += " where idreserva = '" + idreserva + "'";
+
+        try {
+
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+    }
+
+    @Override
+    public String eliminar(String idreserva) {
+        Gson gson = new Gson();
+
+        DBConnection con = new DBConnection();
+        String sql = "DELETE from reserva where idreserva = '" + idreserva + "'";
+       
+        try {
+
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+    }
     
 }
